@@ -1,0 +1,29 @@
+<script type="text/javascript">
+// TODO: VERIFICAR REAL NECESSIDADE
+function go(){
+    console.log("foo");
+    embase = document.getElementById("embase");
+    query = document.getElementById("pubmed").value;
+    query = query.replace(/\[title\/abstract\]/g, "!");
+    query = query.replace(/OR/g, "@");
+    query = query.replace(/AND/g, "#");
+    query = query.replace(/NOT/g, "$");
+    query = query.replace(/\['?MeSH'?\]/ig, "%");
+
+    query = query.replace(/"?([0-9A-Za-z \-\*]*[0-9A-Za-z\-\*])"?/g, "'$1'");
+
+    query = query.replace(/!/g, ":ti,ab");
+    query = query.replace(/@/g, "OR");
+    query = query.replace(/#/g, "AND");
+    query = query.replace(/\$/g, "NOT");
+    query = query.replace(/%/g, "/exp");
+    embase.innerHTML = query;
+}
+
+</script>
+
+<p><textarea id="pubmed" style="width:500px;height:300px;">
+(((((((transarterial[title/abstract] OR trans-arterial[title/abstract] OR local[title/abstract] OR arterial[title/abstract] OR internal[title/abstract] OR transcatheter[title/abstract]) AND (chemoembol*[title/abstract] OR chemotherap*[title/abstract])) OR (TACE[title/abstract] OR TAE[title/abstract] OR chemoembol* OR chemo-embol* OR "Chemoembolization, Therapeutic"[Mesh])) AND (((transarterial[title/abstract] OR trans-arterial[title/abstract] OR local[title/abstract] OR arterial[title/abstract] OR internal[title/abstract]) AND (radiotherap*[title/abstract] OR radio-therap*[title/abstract] OR radioembol*[title/abstract] OR radio-embol*[title/abstract] OR radiopharmaceutical*[title/abstract] OR radiation[title/abstract])) OR (Radioemboli*[title/abstract] OR TARE[title/abstract] OR Yttrium-90[title/abstract] OR Ytrium-90[title/abstract] OR Y90[title/abstract] OR "(90)Y"[title/abstract] OR TheraSphere[title/abstract] OR SIR-Sphere[title/abstract]))) AND (((hepatocellular[title/abstract] OR livercell[title/abstract] OR "liver cell"[title/abstract]) AND (carcinoma*[title/abstract] OR cancer*[title/abstract] OR neoplasm*[title/abstract] OR tumor*[title/abstract])) OR (HCC[title/abstract] OR "Carcinoma, Hepatocellular"[Mesh]))) NOT ("animals"[MeSH] NOT "humans"[MeSH])))
+</textarea></p>
+<p><button id="butt" onclick="go()">Convert</button></p>
+<p><div id="embase"></div></p>
