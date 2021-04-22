@@ -1,3 +1,5 @@
+# MESMA COISA QUE NO ipynb (Notebook)
+
 import math
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
