@@ -15,7 +15,7 @@ con_file = open("config.json")#file with your APIkeys
 config = json.load(con_file)
 con_file.close()
 
-EMBASEapiKey = config['ELSapikey']#Obtain from https://dev.elsevier.com
+EMBASEapiKey = config['ELSapikey'] #Obtain from https://dev.elsevier.com
 ETMapiKey = config['ETMapikey'] #Obtain from https://dev.elsevier.com
 token = config['insttoken'] #Obtain from mailto:integrationsupport@elsevier.com 
 
