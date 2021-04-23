@@ -1,6 +1,5 @@
 # systematic-review
-
-trabalho de TCC
+Final Paper
 
 - This project https://github.com/andersonlthome/systematic-review
 - Pubmed search based on https://github.com/tatsuya-takahashi/PubMed-API-Script
